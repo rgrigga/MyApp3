@@ -3,15 +3,15 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>Laravel: A Framework For Web Artisans</title>
+	<title>G5 Technologies : Small Business | PHP</title>
 	<meta name="viewport" content="width=device-width">
 	{{ HTML::style('laravel/css/style.css') }}
 </head>
 <body>
 	<div class="wrapper">
 		<header>
-			<h1>Laravel</h1>
-			<h2>A Framework For Web Artisans</h2>
+			<h1>Gristech</h1>
+			<h2>Supporting small business</h2>
 
 			<p class="intro-text" style="margin-top: 45px;">
 			</p>
