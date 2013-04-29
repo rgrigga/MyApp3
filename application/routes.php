@@ -208,7 +208,25 @@ Route::filter('auth', function()
 
 //my code below
 //rg
+//
 Route::get('/', array('as' => 'profile', 'before' => 'auth', 'do' => function()
 {
 return View::make('account/profile');
 }));
+
+//As of Laravel 3.1, if you would like to add a filter 
+//to a number of requests whose URI's match a specific pattern, 
+//use the following line :
+Route::filter('pattern: admin/*', 'auth');
+
+Route::group(array('before' => 'auth'), function()
+{
+	Route::get('panel', function()
+		{
+		// do stuff
+		});
+	Route::get('dashboard', function()
+		{
+		// do stuff
+		});
+});
