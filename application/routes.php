@@ -41,10 +41,93 @@ Route::get('/', function()
 });
 */
 
+//routes for controllers:
+
+Route::controller('account');
+Route::controller('demo');
+
+// An important thing to note here is that by default, Laravel does NOT route 
+// to the controllers like other PHP-frameworks do. This is by design.
+//  By doing so, we can actually create simple pages without the need to create 
+//  a controller for it. For example, if we wanted to create a static 
+//  Contact Us page that just lists down contact information, 
+//  we can simply do something like this:
+	
+ // Route::any('contact-us', function()
+ // {
+ //     return View::make('home.contact-us');
+ // })
+
+
+
+Route::controller('home');
+Route::get('about', 'home@about');
+
+// http://codehappy.daylerees.com/using-controllers
+//Here we are saying, let's send all web requests with the GET HTTP verb,
+// and the address /superwelcome/(:any)/(:any) to the welcome action
+//  of the account controller. 
+//  
+//  The (:any) segments are place-holders for our parameters,
+//  and will be passed in the order that they are provided. 
+//   
+//  Using (:num) will match only numbers, and 
+//  using (:any?) will create an optional segment.
+// Route::get('superwelcome/(:any)/(:any)', 'account@welcome');
+
+// http://codehappy.daylerees.com/routes-with-closures
+// Routes are RESTful by nature, but you can use Route::any() to respond to any HTTP verb. Here are your options:
+
+//     <?php
+//     // application/routes.php
+//     Route::get();
+//     Route::post();
+//     Route::put();
+//     Route::delete();
+//     Route::any();
+//     
+Route::get('user/(:any)/task/(:num)', function($username, $task_number)
+{
+// $username will be replaced by the value of (:any)
+// $task_number will be replaced by the integer in place of (:num)
+	$data = array(
+	'username' => $username,
+	'task' => $task_number
+	);
+	return View::make('tasks.for_user', $data);
+
+	// Available placeholders are:
+	// Placeholder 	Explanation
+	// (:any) 	Match any alpha-numeric string
+	// (:num) 	Match any whole number.
+	// (:any?) 	Optional parameter.
+
+});
+
+
+//Redirects and Named Routes
+//
+// Route::get('/', function()
+// 	{
+// 	return Redirect::to('account/profile');
+// 	});
+
+Route::get('account/profile', array('as' => 'profile', 'do' => function()
+	{
+	return View::make('account/profile');
+	}));
+
+Route::get('/', function()
+	{
+	return Redirect::to_route('profile');
+	});
+
 
 //interestingly, this was recommended by the the manual, 
 //but I have read elsewhere that it's bad practice. It's better
 //to explicitly define each controller.
+//
+//The following line opens all controllers.
 Route::controller(Controller::detect());
 
 /*
@@ -123,35 +206,9 @@ Route::filter('auth', function()
 
 
 
-// application/routes.php
-Route::controller('account');
-Route::controller('demo');
-
-// An important thing to note here is that by default, Laravel does NOT route 
-// to the controllers like other PHP-frameworks do. This is by design.
-//  By doing so, we can actually create simple pages without the need to create 
-//  a controller for it. For example, if we wanted to create a static 
-//  Contact Us page that just lists down contact information, 
-//  we can simply do something like this:
-	
- // Route::any('contact-us', function()
- // {
- //     return View::make('home.contact-us');
- // })
-
-
-
-Route::controller('home');
-Route::get('about', 'home@about');
-
-// http://codehappy.daylerees.com/using-controllers
-//Here we are saying, let's send all web requests with the GET HTTP verb,
-// and the address /superwelcome/(:any)/(:any) to the welcome action
-//  of the account controller. 
-//  
-//  The (:any) segments are place-holders for our parameters,
-//  and will be passed in the order that they are provided. 
-//   
-//  Using (:num) will match only numbers, and 
-//  using (:any?) will create an optional segment.
-// Route::get('superwelcome/(:any)/(:any)', 'account@welcome');
+//my code below
+//rg
+Route::get('/', array('as' => 'profile', 'before' => 'auth', 'do' => function()
+{
+return View::make('account/profile');
+}));
