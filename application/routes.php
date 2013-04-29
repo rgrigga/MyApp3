@@ -32,10 +32,20 @@
 |
 */
 
+//rg commented out
+//a static page:
+/*
 Route::get('/', function()
 {
 	return View::make('home.index');
 });
+*/
+
+
+//interestingly, this was recommended by the the manual, 
+//but I have read elsewhere that it's bad practice. It's better
+//to explicitly define each controller.
+Route::controller(Controller::detect());
 
 /*
 |--------------------------------------------------------------------------
@@ -115,11 +125,15 @@ Route::filter('auth', function()
 
 // application/routes.php
 Route::controller('account');
+Route::controller('demo');
 
 // An important thing to note here is that by default, Laravel does NOT route to the controllers like other PHP-frameworks do. This is by design. By doing so, we can actually create simple pages without the need to create a controller for it. For example, if we wanted to create a static Contact Us page that just lists down contact information, we can simply do something like this:
 
 	
-Route::any('contact-us', function()
-{
-    return View::make('home.contact-us');
-})
+// Route::any('contact-us', function()
+// {
+//     return View::make('home.contact-us');
+// })
+
+Route::controller('home');
+Route::get('about', 'home@about');

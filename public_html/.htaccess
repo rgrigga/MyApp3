@@ -9,10 +9,19 @@
 # features. "+FollowSymLinks" must be enabled for this to work symbolically.
 
 <IfModule mod_rewrite.c>
-	Options +FollowSymLinks
-	RewriteEngine On
+
+# this part needed for siteground hosting:
 # RewriteCond %{HTTP_HOST} !^gristech.com$ [NC]
 # RewriteRule ^(.*)$ http://gristech.com/$1 [L,R=301]
+
+	Options +FollowSymLinks
+	RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule . index.php [L]
+
 </IfModule>
 
 # For all files not found in the file system, reroute the request to the
