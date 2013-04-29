@@ -1,9 +1,10 @@
-
-ultimate debugger:
-<?php phpinfo(); ?>
-
-
 <!doctype html>
+
+<?php
+//uncomment for the ultimate debugger:
+//php phpinfo(); 
+?>
+
 <html lang="en">
 <head>
 	<meta charset="utf-8">
