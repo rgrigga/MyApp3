@@ -127,13 +127,31 @@ Route::filter('auth', function()
 Route::controller('account');
 Route::controller('demo');
 
-// An important thing to note here is that by default, Laravel does NOT route to the controllers like other PHP-frameworks do. This is by design. By doing so, we can actually create simple pages without the need to create a controller for it. For example, if we wanted to create a static Contact Us page that just lists down contact information, we can simply do something like this:
-
+// An important thing to note here is that by default, Laravel does NOT route 
+// to the controllers like other PHP-frameworks do. This is by design.
+//  By doing so, we can actually create simple pages without the need to create 
+//  a controller for it. For example, if we wanted to create a static 
+//  Contact Us page that just lists down contact information, 
+//  we can simply do something like this:
 	
-// Route::any('contact-us', function()
-// {
-//     return View::make('home.contact-us');
-// })
+ // Route::any('contact-us', function()
+ // {
+ //     return View::make('home.contact-us');
+ // })
+
+
 
 Route::controller('home');
 Route::get('about', 'home@about');
+
+// http://codehappy.daylerees.com/using-controllers
+//Here we are saying, let's send all web requests with the GET HTTP verb,
+// and the address /superwelcome/(:any)/(:any) to the welcome action
+//  of the account controller. 
+//  
+//  The (:any) segments are place-holders for our parameters,
+//  and will be passed in the order that they are provided. 
+//   
+//  Using (:num) will match only numbers, and 
+//  using (:any?) will create an optional segment.
+// Route::get('superwelcome/(:any)/(:any)', 'account@welcome');

@@ -2,10 +2,15 @@
 class Demo_Controller extends Base_Controller
 {
 //http://codehappy.daylerees.com/using-controllers
-public function action_index()
+public function action_index($name="guest", $place="home")
 {
-	echo "This is the profile page.";
+	$data = array(
+	'name' => $name,
+	'place' => $place
+	);
+	return View::make('demo', $data);
 }
+
 public function action_login()
 {
 	echo "This is the login form.";
