@@ -3,14 +3,16 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>G5 Technologies : Small Business | PHP</title>
+<!-- 	<link href="/favicon.ico" rel="icon" type="image/x-icon" /> -->
+	<title>G5 Technologies : Technologies for Small Business</title>
 	<meta name="viewport" content="width=device-width">
 	{{ HTML::style('laravel/css/style.css') }}
+
 </head>
 <body>
 	<div class="wrapper">
 		<header>
-			<h1>Gristech</h1>
+			<h1>G5</h1>
 			<h2>Supporting small business</h2>
 
 			<p class="intro-text" style="margin-top: 45px;">

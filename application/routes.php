@@ -110,3 +110,16 @@ Route::filter('auth', function()
 {
 	if (Auth::guest()) return Redirect::to('login');
 });
+
+
+
+// application/routes.php
+Route::controller('account');
+
+// An important thing to note here is that by default, Laravel does NOT route to the controllers like other PHP-frameworks do. This is by design. By doing so, we can actually create simple pages without the need to create a controller for it. For example, if we wanted to create a static Contact Us page that just lists down contact information, we can simply do something like this:
+
+	
+Route::any('contact-us', function()
+{
+    return View::make('home.contact-us');
+})
