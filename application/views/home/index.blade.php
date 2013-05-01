@@ -12,7 +12,11 @@
 <!-- 	<link href="/favicon.ico" rel="icon" type="image/x-icon" /> -->
 	<title>G5 Technologies : Technologies for Small Business</title>
 	<meta name="viewport" content="width=device-width">
-	{{ HTML::style('laravel/css/style.css') }}
+	{{ HTML::style('css/main.css') }}
+
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "b2380d7d-a742-4526-80ce-997b2d1e962d", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
 
 </head>
 <body>
@@ -58,8 +62,21 @@
 					<li><a href="http://forums.laravel.com">Laravel Forums</a></li>
 					<li><a href="http://github.com/laravel/laravel">GitHub Repository</a></li>
 				</ul>
+
+				<div>
+	<span class='st_sharethis_large' displayText='ShareThis'></span>
+<span class='st_facebook_large' displayText='Facebook'></span>
+<span class='st_twitter_large' displayText='Tweet'></span>
+<span class='st_linkedin_large' displayText='LinkedIn'></span>
+<span class='st_fblike_large' displayText='Facebook Like'></span>
+<span class='st_twitterfollow_large' displayText='Twitter Follow' st_username='ryangrissinger'></span>
+<span class='st_email_large' displayText='Email'></span>
+</div>
 			</div>
 		</div>
 	</div>
+
+
+
 </body>
 </html>

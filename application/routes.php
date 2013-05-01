@@ -117,10 +117,10 @@ Route::get('account/profile', array('as' => 'profile', 'do' => function()
 	return View::make('account/profile');
 	}));
 
-Route::get('/', function()
-	{
-	return Redirect::to_route('profile');
-	});
+// Route::get('/', function()
+// 	{
+// 	return Redirect::to_route('profile');
+// 	});
 
 
 //interestingly, this was recommended by the the manual, 
@@ -128,7 +128,7 @@ Route::get('/', function()
 //to explicitly define each controller.
 //
 //The following line opens all controllers.
-Route::controller(Controller::detect());
+//Route::controller(Controller::detect());
 
 /*
 |--------------------------------------------------------------------------
@@ -209,16 +209,17 @@ Route::filter('auth', function()
 //my code below
 //rg
 //
-Route::get('/', array('as' => 'profile', 'before' => 'auth', 'do' => function()
-{
-return View::make('account/profile');
-}));
+// Route::get('/', array('as' => 'profile', 'before' => 'auth', 'do' => function()
+// {
+// return View::make('account/profile');
+// }));
 
 //As of Laravel 3.1, if you would like to add a filter 
 //to a number of requests whose URI's match a specific pattern, 
 //use the following line :
 Route::filter('pattern: admin/*', 'auth');
 
+//grouped routes:
 Route::group(array('before' => 'auth'), function()
 {
 	Route::get('panel', function()

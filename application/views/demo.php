@@ -18,10 +18,19 @@ for security.</p>
 </ul>
 
 <p>
-	
+	<code>gristech@serv01 [~]# cd ~/laravel</code>
+	That allows you to change to the laravel directory
 </p>
 
-
+<div>
+	<span class='st_sharethis_large' displayText='ShareThis'></span>
+<span class='st_facebook_large' displayText='Facebook'></span>
+<span class='st_twitter_large' displayText='Tweet'></span>
+<span class='st_linkedin_large' displayText='LinkedIn'></span>
+<span class='st_fblike_large' displayText='Facebook Like'></span>
+<span class='st_twitterfollow_large' displayText='Twitter Follow' st_username='ryangrissinger'></span>
+<span class='st_email_large' displayText='Email'></span>
+</div>
 
 
 

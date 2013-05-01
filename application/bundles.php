@@ -36,5 +36,8 @@
 return array(
 
 	'docs' => array('handles' => 'docs'),
-
+	// 'artisan' => array(
+	//         'handles' => 'artisan',
+	//     ),
 );
+

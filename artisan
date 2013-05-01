@@ -1,5 +1,7 @@
 <?php
 
+//http://stackoverflow.com/questions/13860283/environment-driven-database-settings-in-laravel
+//var_dump(gethostname());
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
@@ -10,26 +12,16 @@
  */
 
 // --------------------------------------------------------------
-// Tick... Tock... Tick... Tock...
-// --------------------------------------------------------------
-define('LARAVEL_START', microtime(true));
-
-// --------------------------------------------------------------
-// Indicate that the request is from the web.
-// --------------------------------------------------------------
-$web = true;
-
-// --------------------------------------------------------------
 // Set the core Laravel path constants.
 // --------------------------------------------------------------
-require '../paths.php';
+require 'paths.php';
 
 // --------------------------------------------------------------
-// Unset the temporary web variable.
+// Bootstrap the Laravel core.
 // --------------------------------------------------------------
-unset($web);
+require path('sys').'core.php';
 
 // --------------------------------------------------------------
-// Launch Laravel.
+// Launch the Laravel "Artisan" CLI.
 // --------------------------------------------------------------
-require path('sys').'laravel.php';
+require path('sys').'cli/artisan'.EXT;

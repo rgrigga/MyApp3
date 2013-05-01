@@ -69,10 +69,10 @@ return array(
 
 		'mysql' => array(
 			'driver'   => 'mysql',
-			'host'     => 'gristech.com',
+			'host'     => 'localhost',
 			'database' => 'gristech_MyApp3',
-			'username' => 'gristech_myapp',
-			'password' => 'Gri$tec4',
+			'username' => 'gristech_foo',
+			'password' => 'X)~kRXc.=T4@',
 			'charset'  => 'utf8',
 			'prefix'   => '',
 		),
