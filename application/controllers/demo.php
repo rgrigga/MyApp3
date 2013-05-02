@@ -5,10 +5,11 @@ class Demo_Controller extends Base_Controller
 public function action_index($name="guest", $place="home")
 {
 	$data = array(
-	'name' => $name,
-	'place' => $place
-	);
-	return View::make('demo', $data);
+		'name' => $name,
+		'place' => $place
+		);
+
+	return View::make('demo.demo', $data);
 }
 
 public function action_login()
