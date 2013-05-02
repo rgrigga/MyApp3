@@ -65,7 +65,7 @@ Route::post('surl', function()
 	// Create results view, present to user
 });
 
-Route::get('calc','calc@index');
+Route::any('calc','calc@index');
 
 // An important thing to note here is that by default, Laravel does NOT route 
 // to the controllers like other PHP-frameworks do. This is by design.

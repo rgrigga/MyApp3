@@ -9,5 +9,3 @@
 
 <h1>G5 Tech</h1>
 @endsection
-
-c'est header

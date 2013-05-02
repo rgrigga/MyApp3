@@ -5,6 +5,7 @@
     <div data-role="header">
         <h1>@yield('title')</h1></div><p> </p>
  
+
 <div data-role="content"><p>    <br>
         @yield('content')       <br></p>
 </div>

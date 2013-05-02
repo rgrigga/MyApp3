@@ -9,5 +9,5 @@
 @endsection
  
 @section('footer')
-    <h4>Page Footer</h4>
-<p>@endsection</p>
+	@yield('partials.footer')
+@endsection
