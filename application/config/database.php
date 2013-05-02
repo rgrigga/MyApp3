@@ -70,9 +70,9 @@ return array(
 		'mysql' => array(
 			'driver'   => 'mysql',
 			'host'     => 'localhost',
-			'database' => 'gristech_MyApp3',
+			'database' => 'gristech_MyApp3', //don't forget the prefix
 			'username' => 'gristech_foo',
-			'password' => 'X)~kRXc.=T4@',
+			'password' => 'foo',
 			'charset'  => 'utf8',
 			'prefix'   => '',
 		),

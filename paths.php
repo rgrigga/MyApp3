@@ -23,8 +23,8 @@
 
 $environments = array(
 
-	//'development' => array('http://localhost*', '*.dev'),
-  //'production' => array('http://www.*', '*.gristech.com*', 'serv01.siteground252.com'),
+	'development' => array('http://localhost*', '*.dev'),
+  'production' => array('http://www.*', '*gristech.com*', 'serv01.siteground252.com'),
 
 );
 

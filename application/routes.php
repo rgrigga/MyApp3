@@ -45,6 +45,27 @@ Route::get('/', function()
 
 Route::controller('account');
 Route::controller('demo');
+Route::controller('calc');
+
+Route::get('surl', function()
+	{
+		return View::make('surl.index');
+	});
+
+
+Route::post('surl', function()
+{
+	$url = Input::get('url');
+	// validate url
+	
+	// if url already in table, return 
+	
+	// else, add new row & return shortened url
+	// 
+	// Create results view, present to user
+});
+
+Route::get('calc','calc@index');
 
 // An important thing to note here is that by default, Laravel does NOT route 
 // to the controllers like other PHP-frameworks do. This is by design.
@@ -61,8 +82,25 @@ Route::controller('demo');
 
 
 Route::controller('home');
-Route::get('about', 'home@about');
 
+Route::get('about', function()
+	{
+		return View::make('home.about', array(
+
+			'data' => array('foo', 'bar', 'baz'),
+			'empty' => array()
+
+			));
+	});
+
+Route::get('posts', function()
+{
+
+
+	$users = User::all();
+	return View::make('home.posts')->with('users', $users);
+
+});
 // http://codehappy.daylerees.com/using-controllers
 //Here we are saying, let's send all web requests with the GET HTTP verb,
 // and the address /superwelcome/(:any)/(:any) to the welcome action

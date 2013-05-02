@@ -67,8 +67,8 @@ return array(
 	|
 	*/
 
-	'profiler' => true,
-	// 'profiler' => false,
+	//'profiler' => true,
+	 'profiler' => false,
 
 	/*
 	|--------------------------------------------------------------------------
