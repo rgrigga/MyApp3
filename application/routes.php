@@ -58,14 +58,42 @@ Route::post('surl', function()
 	$url = Input::get('url');
 	// validate url
 	
-	// if url already in table, return 
-	
+	// if url already in table, return it
+	$record = Url::where_url($url)->first();
+
+	if ( $record ){
+		//then return it
+		return View::make('surl.result')
+		->with('surl', $record->surl);
+	}
+	else{
+		return 'there is no record.';
+	}
+
 	// else, add new row & return shortened url
-	// 
+	
 	// Create results view, present to user
+	// dd($record);
 });
 
-Route::any('calc','calc@index');
+
+Route::get('surl/(:any)',function($surl)
+{
+	//query for the row with the short url
+	$row = Url::where_surl($surl)->first();
+
+	//if not found, redirect home
+	if( is_null($row) ) return Redirect::to('surl');
+	//if it is found, redirect to that url
+	else return Redirect::to("http://".$row->url);
+	// else return "I found it: ".$row->url;
+	 // dd($surl);
+		
+		//otherwise, fetch the url in the same row 
+		
+	
+});
+// Route::any('calc','calc@index');
 
 // An important thing to note here is that by default, Laravel does NOT route 
 // to the controllers like other PHP-frameworks do. This is by design.
@@ -81,22 +109,20 @@ Route::any('calc','calc@index');
 
 
 
-Route::controller('home');
+// Route::controller('home');
 
-Route::get('about', function()
-	{
-		return View::make('home.about', array(
+// Route::get('about', function()
+// 	{
+// 		return View::make('home.about', array(
 
-			'data' => array('foo', 'bar', 'baz'),
-			'empty' => array()
+// 			'data' => array('foo', 'bar', 'baz'),
+// 			'empty' => array()
 
-			));
-	});
+// 			));
+// 	});
 
 Route::get('posts', function()
 {
-
-
 	$users = User::all();
 	return View::make('home.posts')->with('users', $users);
 
@@ -124,36 +150,38 @@ Route::get('posts', function()
 //     Route::delete();
 //     Route::any();
 //     
-Route::get('user/(:any)/task/(:num)', function($username, $task_number)
-{
-// $username will be replaced by the value of (:any)
-// $task_number will be replaced by the integer in place of (:num)
-	$data = array(
-	'username' => $username,
-	'task' => $task_number
-	);
-	return View::make('tasks.for_user', $data);
+// Route::get('user/(:any)/task/(:num)', function($username, $task_number)
+// {
+// // $username will be replaced by the value of (:any)
+// // $task_number will be replaced by the integer in place of (:num)
+// 	$data = array(
+// 	'username' => $username,
+// 	'task' => $task_number
+// 	);
+// 	return View::make('tasks.for_user', $data);
 
-	// Available placeholders are:
-	// Placeholder 	Explanation
-	// (:any) 	Match any alpha-numeric string
-	// (:num) 	Match any whole number.
-	// (:any?) 	Optional parameter.
+// 	// Available placeholders are:
+// 	// Placeholder 	Explanation
+// 	// (:any) 	Match any alpha-numeric string
+// 	// (:num) 	Match any whole number.
+// 	// (:any?) 	Optional parameter.
 
-});
+// });
 
-
+///////////////////////////////////////////////
 //Redirects and Named Routes
+//
+//
 //
 // Route::get('/', function()
 // 	{
 // 	return Redirect::to('account/profile');
 // 	});
 
-Route::get('account/profile', array('as' => 'profile', 'do' => function()
-	{
-	return View::make('account/profile');
-	}));
+// Route::get('account/profile', array('as' => 'profile', 'do' => function()
+// 	{
+// 	return View::make('account/profile');
+// 	}));
 
 // Route::get('/', function()
 // 	{
@@ -255,17 +283,17 @@ Route::filter('auth', function()
 //As of Laravel 3.1, if you would like to add a filter 
 //to a number of requests whose URI's match a specific pattern, 
 //use the following line :
-Route::filter('pattern: admin/*', 'auth');
+// Route::filter('pattern: admin/*', 'auth');
 
-//grouped routes:
-Route::group(array('before' => 'auth'), function()
-{
-	Route::get('panel', function()
-		{
-		// do stuff
-		});
-	Route::get('dashboard', function()
-		{
-		// do stuff
-		});
-});
+// //grouped routes:
+// Route::group(array('before' => 'auth'), function()
+// {
+// 	Route::get('panel', function()
+// 		{
+// 		// do stuff
+// 		});
+// 	Route::get('dashboard', function()
+// 		{
+// 		// do stuff
+// 		});
+// });

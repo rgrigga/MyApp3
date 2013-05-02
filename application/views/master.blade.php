@@ -7,20 +7,24 @@
 	<title>G5 Technologies : Technologies for Small Business</title>
 	<meta name="viewport" content="width=device-width">
 <!--     <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-    {{ Asset::scripts() }}
-    {{ Asset::styles() }} 
+
 <!-- <title></title> -->
 </head>
 <body>
 
-	<div class="header">
-		@yield('partials.header')
-	</div>
+	<!-- @section('header') -->
+	
+	    <!-- @yield('header') -->
+	    
+	<!-- @endsection -->
+
+
 
 	<nav>
 		@section('nav')
-			<li>Home</li>
-			<li>About</li>
+<!-- 			<li>Home</li>
+			<li>About</li> -->
+			<li>app/views/master.blade</li>
 		@yield_section
 	</nav>
 
@@ -28,9 +32,9 @@
 		@yield('content')
 	</div>
 
-	<div class="footer">
-		@yield('partials.footer')
-	</div>
+<!-- 	<div class="footer">
+		@yield('footer')
+	</div> -->
 
 </body>
 </html>

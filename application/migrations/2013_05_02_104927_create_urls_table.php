@@ -7,7 +7,7 @@ class Create_Urls_Table {
 		Schema::create('urls', function($table) {
 			$table->increments('id');
 			$table->string('url');
-			$table->string('shortened');
+			$table->string('surl');
 			$table->timestamps();
 	});
 
