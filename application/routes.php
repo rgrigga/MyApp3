@@ -86,7 +86,7 @@ Route::post('surl', function()
 		'url' 	=> $url,
 		'surl' 	=> $surl
 	));
-dd($row);
+//dd($row);
 	if( $row ){
 
 

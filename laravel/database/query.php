@@ -2,7 +2,12 @@
 
 use Closure;
 use Laravel\Database;
-use Laravel\Paginator;
+
+//use Laravel\Paginator;
+//for more info, see
+//http://bootstrapper.aws.af.cm/install#quick
+use Paginator;
+
 use Laravel\Database\Query\Grammars\Postgres;
 use Laravel\Database\Query\Grammars\SQLServer;
 

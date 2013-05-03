@@ -39,5 +39,8 @@ return array(
 	// 'artisan' => array(
 	//         'handles' => 'artisan',
 	//     ),
-);
+// );
 
+//     return array(
+    'bootstrapper' => array('auto' => true),
+    );
