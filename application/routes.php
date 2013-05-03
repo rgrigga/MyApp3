@@ -56,36 +56,56 @@ Route::get('surl', function()
 Route::post('surl', function()
 {
 	$url = Input::get('url');
-	// validate url
+	// $longurl = Input::get('url');
+	// $url = preg_replace('#^https?://#', '', $longurl);
 	
+	// validate url
+	$v = Url::validate(array('url' => $url));
+
+
+	if($v !== true ) {
+		return Redirect::to('/surl/')->with_errors($v->errors);
+	}
+		
 	// if url already in table, return it
 	$record = Url::where_url($url)->first();
 
 	if ( $record ){
 		//then return it
 		return View::make('surl.result')
-		->with('surl', $record->surl);
+		->with(array(
+			'surl' => $record->surl,
+			'url' => $record->url
+			));
 	}
-	else{
-		return 'there is no record.';
-	}
-
+		
+	$surl = URL::get_unique_short_url();
+		
 	// else, add new row & return shortened url
-	
-	// Create results view, present to user
-	// dd($record);
+	$row = URL::create(array(
+		'url' 	=> $url,
+		'surl' 	=> $surl
+	));
+dd($row);
+	if( $row ){
+
+
+		return View::make('surl.result')->with(array('surl' => $row->surl, 'url' => $row->url));
+		//return "Found!";
+	}
+	return "Something went horribly wrong!";
 });
 
-
-Route::get('surl/(:any)',function($surl)
+Route::get('surl/(:any)', function($surl)
 {
 	//query for the row with the short url
 	$row = Url::where_surl($surl)->first();
 
 	//if not found, redirect home
-	if( is_null($row) ) return Redirect::to('surl');
+	if( is_null($row) ) return Redirect::to($surl);
 	//if it is found, redirect to that url
-	else return Redirect::to("http://".$row->url);
+	else return Redirect::to($row->url);
+	//else return Redirect::to("http://".$row->url);
 	// else return "I found it: ".$row->url;
 	 // dd($surl);
 		

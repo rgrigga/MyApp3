@@ -1,21 +1,17 @@
 @layout('master')
 
-	<nav>
-		@section('nav')
- 	@parent
-<!--		<li>Home</li>
-			<li>About</li> -->
-			<li>views/surl/index</li>
-		@yield_section
-	</nav>
+
 
 @section('content')
-<h1>My URL Shortener</h1>
+
+<h1>Make it Short</h1>
 
 {{Form::open('/surl/')}}
 
-	{{ Form::text('url') }}
-	{{ Form::submit('Shorten') }}
+	{{ Form::text('url', 'http://') }}
 
 {{Form::close() }}
+
+{{$errors->first('url', '<p class="error">:message</p>')}}
+
 @endsection

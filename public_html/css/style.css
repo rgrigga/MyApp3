@@ -1,0 +1,27 @@
+body{
+	background: #DDDDDD;
+	color:white;
+	width: 100%;
+	margin:auto;
+	padding-top: 100px;
+	text-align: center;
+	font-family: sans-serif;
+}
+
+input[type=text]{
+	width: 85%
+	height: 40px;
+	font-size:25px;
+	color: #666;
+}
+
+a{
+	color: #333;
+	font-size:25px;
+}
+
+
+.error{
+	color:red;
+	font-style: italic;
+}
